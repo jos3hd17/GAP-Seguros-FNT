@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.template.html',
+  styleUrls: ['./app.template.scss']
 })
 export class AppComponent {
   title = 'gap-fnt';

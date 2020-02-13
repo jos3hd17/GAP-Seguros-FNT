@@ -1,0 +1,110 @@
+<mat-card class="summary row" *ngIf="poliza.nombre">
+    <div class="col">
+        <h3>
+            Poliza {{poliza.nombre}}
+        </h3>
+    </div>
+    <div class="col">
+        Estado: PROCESO
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h5>
+                {{poliza.cliente}}
+            </h5>
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <p>#Poliza: {{poliza.id}}</p>
+            <p>Periodo: {{poliza.finicio}}</p>
+        </div>
+
+    </div>
+    <div>
+        {{poliza.descripcion}}
+    </div>
+    <hr>
+    <div class="col">
+        Valor total: {{poliza.precio}}
+    </div>
+</mat-card>
+
+<div class="summary row" *ngIf="!poliza.nombre">
+    <div class="col">
+        <mat-card>
+            <h2>Informacion del cliente</h2>
+            <hr>
+            <form class="example-form">
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Favorite food</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let food of foods" [value]="food.value">
+                                    {{food.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <button mat-button (click)="openDialog()">Crear nuevo Cliente</button>
+
+                    </div>
+                </div>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                </mat-form-field>
+
+            </form>
+        </mat-card>
+    </div>
+    <div class="col">
+        <mat-card>
+            <h2>Informacion de la poliza</h2>
+            <hr>
+            <form class="example-form">
+                <mat-form-field>
+                    <mat-label>Seleccione un tipo de poliza</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Seleccione riesgo</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Tiempo de cobertura</mat-label>
+                    <input matInput placeholder="Cobertura" value="1 Mes">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Inicio de vigencia</mat-label>
+                    <input matInput placeholder="Cobertura" value="2020/01/01">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Precio poliza</mat-label>
+                    <input matInput placeholder="Cobertura" value="200.000.000">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Porcentaje de cubrimiento</mat-label>
+                    <input matInput placeholder="Cubrimiento" value="40%">
+                </mat-form-field>
+                <mat-slide-toggle>Requiere reaseguro?</mat-slide-toggle>
+            </form>
+        </mat-card>
+    </div>
+
+    <button mat-button>Save or update</button>
+</div>
